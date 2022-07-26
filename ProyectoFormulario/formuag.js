@@ -5,7 +5,7 @@ window. addEventListener('load', ()=> {
     const form = document.querySelector('#formulario')
     const usuario = document.getElementById('usuario')
     const email = document.getElementById('email')
-    const pass = document.getElementById('pass')
+    const solicitud = document.getElementById('solicitud')
     const passConfirma = document.getElementById('passConfirma')
 
     /*capturar evento submit para nuestro formulario y prevenir el envio del formulario sin la informacion solicitada*/
@@ -23,7 +23,7 @@ window. addEventListener('load', ()=> {
         //capturar los valores ingresados por el usuario
         const usuarioValor = usuario.value.trim() // El trim lo que hace es eliminar los espacios en blanco
         const emailValor = email.value.trim()
-        const passValor = pass.value.trim()
+        const solicitudValor = solicitud.value.trim()
         const passConfirmaValor = passConfirma.value.trim()
 
         /*Primera comprobacion: Que el usuario ingrese algun dato, que no deje espacios*/
@@ -61,16 +61,14 @@ window. addEventListener('load', ()=> {
         }
 
     //VALIDACION CAMPO CONTRASEÑA
-        const er = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/
+        
     
-        if(!passValor){
-            validaFalla(pass, 'Campo vacio')
-        } else if(passValor.length < 8){
-            validaFalla(pass, 'Debe tener 8 caracteres como minimo')
-        } else if(!passValor.match(er)){
-            validaFalla(pass, 'Debe tener al menos una may., y una min y un num.')
+        if(!solicitudValor){
+            validaFalla(solicitud, 'Campo vacio')
+        } else if(solicitudValor.length > 200){
+            validaFalla(solicitud, 'Debe tener  caracteres como minimo')
         } else{
-            validaOk(pass)
+            validaOk(solicitud)
         }
     //El metodo match se utiliza para obtener todas las ocurrencias de una expresion regular dentro de una
      
