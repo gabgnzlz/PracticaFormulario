@@ -6,7 +6,7 @@ window. addEventListener('load', ()=> {
     const usuario = document.getElementById('usuario')
     const email = document.getElementById('email')
     const pass = document.getElementById('pass')
-    const passConfirma = document.getElementById('passConfirma')
+    const passConfirma = document.getElementById('passConfirma') //document es todo el html
 
     /*capturar evento submit para nuestro formulario y prevenir el envio del formulario sin la informacion solicitada*/
     /*Prevent default: prevenimos el comportamiento por defecto que realiza la pagina una vez que desencademos el evento submit
@@ -125,3 +125,7 @@ window. addEventListener('load', ()=> {
 
 
 })
+
+
+
+
