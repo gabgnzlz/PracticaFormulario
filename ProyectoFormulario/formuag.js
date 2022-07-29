@@ -1,56 +1,34 @@
-/* evento load: Definición de manejadores de eventos mediante Javascript */
-/*Referenciar elementos en este caso al formulario y cada uno de los input*/
 window. addEventListener('load', ()=> {
     //const form = document.getElementById('formulario')
     const form = document.querySelector('#formulario')
     const usuario = document.getElementById('usuario')
     const email = document.getElementById('email')
-    const solicitud = document.getElementById('solicitud')
-    const passConfirma = document.getElementById('passConfirma')
+    const coment = document.getElementById('coment')
+    const phone = document.getElementById('phone')
 
-    /*capturar evento submit para nuestro formulario y prevenir el envio del formulario sin la informacion solicitada*/
-    /*Prevent default: prevenimos el comportamiento por defecto que realiza la pagina una vez que desencademos el evento submit
-    Lo bueno de esto es que se pueden realizar todas las validaciones y controles, enseñandolos en la pagina donde se esta trabajando, 
-    hasta que se cumplan y recien ahi desencadenamos este evento */
+    
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         validaCampos()
 
     })
 
-    //VALIDACION CAMPO USUARIO
+    //VALIDACION CAMPO
     const validaCampos = ()=> {
         //capturar los valores ingresados por el usuario
         const usuarioValor = usuario.value.trim() // El trim lo que hace es eliminar los espacios en blanco
         const emailValor = email.value.trim()
-        const solicitudValor = solicitud.value.trim()
-        const passConfirmaValor = passConfirma.value.trim()
+        const comentValor = coment.value.trim()
+        const phoneValor = phone.value.trim()
 
-        /*Primera comprobacion: Que el usuario ingrese algun dato, que no deje espacios*/
+    //VALIDACION USUARIO
         if(!usuarioValor){
             console.log('CAMPO VACIO')
             validaFalla(usuario, 'Campo vacio')
         }else{
             validaOk(usuario)
-        } /*El simbolo de note (!) note logico, devuelve falsos y su unico operando se puede convertir a true
-        de lo contrario devuelve true
+        }   
         
-        /**/
-        
-        /* OTRA MANERA DE HACERLO: if(usuarioValor === ''){
-            console.log('CAMPO VACIO')
-            validaFalla(usuario, 'Campo vacio') Metodo
-
-        } el === sirve para comparar el valor de ddos objetos sin forzar la conversion automatica de tipos
-        else{
-            validaOk(usuario)
-        } */
-
-         /*OTRA MANERA DE HACERLO: Operador ternario
-
-        (!usuarioValor) ? console.log('CAMPO VACIO') : console.log(usuarioValor)*/    
-
-
     //VALIDACION CAMPO EMAIL
         if(!emailValor){
             validaFalla(email, 'Campo vacio')
@@ -60,30 +38,34 @@ window. addEventListener('load', ()=> {
             validaOk(email)
         }
 
-    //VALIDACION CAMPO CONTRASEÑA
+    //VALIDACION CAMPO COMENTARIO
         
     
-        if(!solicitudValor){
-            validaFalla(solicitud, 'Campo vacio')
-        } else if(solicitudValor.length > 200){
-            validaFalla(solicitud, 'Debe tener  caracteres como minimo')
+        if(!comentValor){
+            validaFalla(coment, 'Campo vacio')
+        } else if(comentValor.length > 200){
+            validaFalla(coment, 'Debe tener  caracteres como minimo')
         } else{
-            validaOk(solicitud)
+            validaOk(coment)
         }
-    //El metodo match se utiliza para obtener todas las ocurrencias de una expresion regular dentro de una
-     
-     //VALIDACION CAMPO CONFIRMACION DE CONTRASEÑA
-        if(!passConfirmaValor){
-            validaFalla(passConfirma, 'Confirme su contraseña')
-        } else if(passValor !== passConfirmaValor) {
-            validaFalla(passConfirma, 'No coincide la contraseña')
-        } else{
-            validaOk(passConfirma)
+    
+    //VALIDACION CAMPO TELEFONO
+        
+        if(!phoneValor){
+            validaFalla(phone, 'campo vacio')
+        } else if(phoneValor.length < 9){
+            validaFalla(phone, 'Debe tener 9 digitos como minimo.')
+        } else if(!validaPhone (phoneValor)){
+            validaFalla(phone, 'Debe contener solo números')
+        }else{
+            validaOk(phone)
         }
-    }
+    
+       
+}
         
     
-         /*definicion de variables validaFalla y validaOk*/
+         /*definicion de variables validaFalla y validaOk  valida phone*/
     const validaFalla = (input, msje) => {
         const formControl = input.parentElement /*La propiedad parent element devuelve el elemento padre del elemento especificado*/
         const aviso = formControl.querySelector('p')
@@ -106,9 +88,21 @@ window. addEventListener('load', ()=> {
         return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
     }
 
+    const validaPhone = (phone) => {
+        return /^[0-9]+$/.test(phone);
+    }
+
+    const ingresoUsuario = document.getElementById('usuario');
+    document.getElementById('btnEnviar').onclick = function(){
+    alert('Hola ' + ingresoUsuario.value +', tu solicitud fue enviada');
+}
+    
+
 })
+
+ 
            
-           
+     
        
 
             

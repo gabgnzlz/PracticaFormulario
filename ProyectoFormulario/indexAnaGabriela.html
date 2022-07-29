@@ -8,18 +8,39 @@
 </head>
 <body>
 
-    <section class="container">
+    <section class="contenedorWeb">
         <article class="logo">
         <img src="./templates/Logo_Sonrisa_Forma_Cuadrado_Minimalista_Neón_Rosa_Amarillo-removebg-preview.png" alt="">
         </article>
 
         <article class="description">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed enim quaerat et ducimus ea nulla distinctio. Pariatur aperiam deleniti veniam eveniet nulla quibusdam explicabo praesentium? Aliquid vitae omnis magnam rerum.</p>
+        <p>En <strong>CleanUp</strong> ponemos a tu disposición nuestro servicio de limpieza a domicilio, con profesionales de total confianza y la máxima experiencia. De esta forma, tendrás un resultado excelente para tu casa, local u oficina. Este tipo de servicio no solo es fundamental para poder disponer del mejor ambiente en el hogar, sino también en cualquier empresa. A menudo la falta de tiempo hace que contar con personal de limpieza profesional sea una necesidad imprescindible.</p>
         </article>
+
+        <h1>¿Por qué contratar CleanUp?</h1>
+
+        <div class="cardText">
+            <div class="texts">
+                <h4>Mantener un hogar acogedor</h4>
+                <p>La limpieza y el orden son aspectos fundamentales para sentirnos a gusto en una casa, y en Hogami lo sabemos. Por eso, ponemos el máximo empeño en que puedas conseguirlo sin preocupaciones, y puedas estar cómodo y a gusto en un ambiente agradable.</p>
+            </div>
+
+            <div class="texts">
+                <h4>Un entorno de trabajo agradable</h4>
+                <p>La productividad en el trabajo está relacionada con disponer de un entorno y un espacio limpio y agradable. Es imposible trabajar en un lugar en donde reina el desorden y la suciedad. Las condiciones de higiene son fundamentales para realizar de forma adecuada tu labor diaria.</p>
+            </div>
+
+            <div class="texts">
+                <h4>Ahorro de tiempo y dinero</h4>
+                <p>Tanto en el hogar como en un local comercial, contratar un servicio de limpieza supone un ahorro, ya que ese tiempo puede ser destinado a otras ocupaciones, mientras nuestros profesionales se encargan de cuidar el entorno.</p>
+            </div>
+            
+
+        </div>
     
         <div class="formu">
             <div class="cabecera" id>
-                <h2>Solicita presupuesto!</h2>
+                <h2>SOLICITA PRESUPUESTO</h2>
             </div>
             <form id="formulario" class="formulario">
 
@@ -36,29 +57,34 @@
                 </div>
 
                 <div class="form-control">
-                    <label for="solicitud">Comentarios adicionales</label>
-                    <textarea id="solicitud" type="text" placeholder="Ej. Hola, me gustaria profundizar la limpieza de los baños."></textarea>
+                    <label for="phone">Teléfono</label>
+                    <input id="phone" type="tel" placeholder="Ingrese teléfono de contacto">
                     <p></p> <!-- texto que indique error de ese campo --> 
                 </div>
 
                 <div class="form-control">
-                    <label for="servicio">Comentarios adicionales</label>
-                    <select id="servicio" value ></textarea>
+                    <label for="servicio">Servicio de limpieza</label>
+                    <select id="servicio" class="servicio">
+                        <option>--Elige una opción--</option>
+                        <option>Oficinas</option>
+                        <option>Hogar</option>
+                        <option>Colegio</option>
+                        <option>Tiendas</option>
+                    </select>
                     <p></p> <!-- texto que indique error de ese campo --> 
                 </div>
-
+             
 
                 <div class="form-control">
-                    <label for="passConfirma">Telefono de contacto</label>
-                    <input id="passConfirma" type="password">
+                    <label for="coment">Comentarios adicionales</label>
+                    <textarea id="coment" type="text" placeholder="Ej. Hola, me gustaria profundizar la limpieza de las áreas comunes de la casa."></textarea>
                     <p></p> <!-- texto que indique error de ese campo --> 
                 </div>
 
                 <article class="boton">
-                <button>Enviar</button>
+                <button id="btnEnviar">Enviar</button>
                 </article>
 
-<img src="" alt="">
             </form>
         </div>
 
